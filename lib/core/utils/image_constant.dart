@@ -62,7 +62,7 @@ class ImageConstant {
   static String imgEye = '$imagePath/img_eye.svg';
 
   // Common images
-  static String logo = '$imagePath/flycoup_logo.png';
+  static String logo = '$imagePath/wekeep_logo.png';
   static String imageDefaultProfile = '$imagePath/person_default.png';
 
 
@@ -188,4 +188,8 @@ class ImageConstant {
 
   static String calcendarPrev = 'assets/images/calendarPrev.png';
   static String calcendarNext = 'assets/images/calendarNext.png';
+  static String nav_home_icon = 'assets/images/nova_home_icon.png';
+  static String nav_log_icon = 'assets/images/nova_nav_log_icon.png';
+  static String nav_profile_icon = 'assets/images/nova_nav_profile_icon.png';
+  static String nav_profile_icon2 = 'assets/images/nova_nav_profile_icon2.png';
 }

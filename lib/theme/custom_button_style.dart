@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:costbridge/core/app_export.dart';
+import 'package:wekeep/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 /// A class that offers pre-defined button styles for customizing button appearance.
@@ -72,7 +72,7 @@ class CustomButtonStyles {
         ),
       );
   static ButtonStyle get fillOnPrimaryContainer => ElevatedButton.styleFrom(
-        backgroundColor: theme.colorScheme.onPrimaryContainer,
+        backgroundColor: Colors.black,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.h),
         ),

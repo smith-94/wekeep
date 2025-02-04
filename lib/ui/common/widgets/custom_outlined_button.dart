@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:costbridge/core/app_export.dart';
-import 'package:costbridge/ui/common/widgets/base_button.dart';
+import 'package:wekeep/core/app_export.dart';
+import 'package:wekeep/ui/common/widgets/base_button.dart';
 
 class CustomOutlinedButton extends BaseButton {
   CustomOutlinedButton({

@@ -81,9 +81,9 @@ class CustomTextStyles {
   );
   static get bodyMediumBlack1000 => theme.textTheme.bodyMedium!.copyWith(
     color: appTheme.black900,
-    fontSize: 15.fSize,
+    fontSize: 16.fSize,
     fontFamily: 'Roboto',
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w800,
   );
   static get bodyMediumGray300 => theme.textTheme.bodyMedium!.copyWith(
         color: appTheme.gray300,

@@ -1,14 +1,11 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:costbridge/ui/main/view/main_view.dart';
-import 'package:costbridge/ui/mypage/view/mypage_view.dart';
-import 'package:costbridge/ui/main/widget/main_widget.dart';
-import 'package:costbridge/ui/main/viewmodel/main_viewmodel.dart';
+import 'package:wekeep/ui/common/widgets/app_bar/custom_app_bar.dart';
+import 'package:wekeep/ui/common/widgets/custom_image_view.dart';
+import 'package:wekeep/ui/home/view/home_view.dart';
+import 'package:wekeep/ui/home/view/home_view.dart';
+import 'package:wekeep/ui/log/view/log_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:stacked/stacked.dart';
-import 'package:costbridge/core/app_export.dart';
+import 'package:wekeep/core/app_export.dart';
 
 class MainNavigatorScreen extends StatefulWidget {
   @override
@@ -16,47 +13,62 @@ class MainNavigatorScreen extends StatefulWidget {
 }
 
 class _MainNavigatorScreenState extends State<MainNavigatorScreen> {
-  //const MainNavigatorScreen({super.key});
-  PageController _pageController = PageController(initialPage: 0);
-
+  PageController _pageController = PageController(initialPage: 1);
   int _selectedIndex = 0;
-
   int _page = 0;
-
   int? activeMenu;
-
   PageController get pageController => _pageController;
-
   int get selectedIndex => _selectedIndex;
-
   int get page => _page;
 
   @override
   Widget build(BuildContext context) {
+
     List<BottomMenuModel> bottomMenuList = [
       BottomMenuModel(
-        icon: Icons.home,
-        activeIcon: Icons.home,
-        title: "홈",
+        imagePath: ImageConstant.nav_log_icon,
+        activeImagePath: ImageConstant.nav_log_icon,
         type: BottomBarEnum.tf,
       ),
       BottomMenuModel(
-        icon: Icons.person,
-        activeIcon: Icons.person,
-        title: "마이페이지",
+        imagePath: ImageConstant.nav_home_icon,
+        activeImagePath: ImageConstant.nav_home_icon,
+        type: BottomBarEnum.tf,
+      ),
+      BottomMenuModel(
+        imagePath: ImageConstant.nav_profile_icon2,
+        activeImagePath: ImageConstant.nav_profile_icon2,
         type: BottomBarEnum.tf,
       )
     ];
-
-
     return Scaffold(
+          appBar: CustomAppBar(
+            backgroundColor: Color(0xFF233B6E),
+            height: 99.v,
+            title: Padding(
+              padding: EdgeInsets.only(bottom: 20.v),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomImageView(
+                    fit: BoxFit.contain,
+                    imagePath: ImageConstant.logo,
+                    width: MediaQuery.of(context).size.width * 0.25,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    alignment: Alignment.center,
+                  ),
+                ],
+              ),
+            ),
+          ),
           body: PageView(
             physics: NeverScrollableScrollPhysics(),
             controller: pageController,
             onPageChanged: onPageChanged,
             children: <Widget>[
-              MainView(),
-              const MyPageView(),
+              LogView(),
+              HomeView(),
+              HomeView(),
             ],
           ),
           bottomNavigationBar: Theme(
@@ -66,13 +78,14 @@ class _MainNavigatorScreenState extends State<MainNavigatorScreen> {
           textTheme: Theme.of(context).textTheme.copyWith(
             bodySmall: TextStyle(color: Colors.grey[500]),
           ),
-        ),
+          ),
           child: Container(
+            height: 160.v,
             decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFF6F6F6),
                 border: Border(top: BorderSide(color: Color.fromRGBO(100, 100, 100, 0.1), width: 1.0))),
             child: BottomNavigationBar(
-              backgroundColor: Colors.transparent,
+              backgroundColor: Color(0xFFF6F6F6),
               showSelectedLabels: false,
               showUnselectedLabels: false,
               selectedFontSize: 0,
@@ -84,7 +97,7 @@ class _MainNavigatorScreenState extends State<MainNavigatorScreen> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(bottomMenuList[index].activeIcon),
+                      CustomImageView(imagePath: bottomMenuList[index].imagePath,width: 40.h),
                       Padding(
                         padding: EdgeInsets.only(top: 8.v),
                         child: Text(
@@ -100,7 +113,9 @@ class _MainNavigatorScreenState extends State<MainNavigatorScreen> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(bottomMenuList[index].activeIcon,color: Colors.black,),
+                      CustomImageView(
+                        imagePath: bottomMenuList[index].imagePath,
+                        width: 40.h,),
                       Padding(
                         padding: EdgeInsets.only(top: 7.v),
                         child: Text(
@@ -142,15 +157,14 @@ enum BottomBarEnum { home, reservation, myrecord, mypage, chat, tf }
 
 class BottomMenuModel {
   BottomMenuModel({
-    required this.icon,
-    required this.activeIcon,
+    required this.imagePath,
+    required this.activeImagePath,
     this.title,
     required this.type,
   });
 
-  IconData icon;
-
-  IconData activeIcon;
+  String imagePath;
+  String activeImagePath;
 
   String? title;
 

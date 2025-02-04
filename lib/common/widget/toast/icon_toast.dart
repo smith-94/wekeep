@@ -1,4 +1,4 @@
-import 'package:costbridge/common/const/const.dart';
+import 'package:wekeep/common/const/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -46,21 +46,4 @@ void iconToast(context, message, imgPath, {double bottom = 50}) {
     ),
   );
 
-
-  FToast().showToast(
-    child: toast,
-    gravity: ToastGravity.BOTTOM ,
-    toastDuration: const Duration(seconds: 2),
-    positionedToastBuilder: (context, child) {
-      return Stack(
-        alignment: Alignment.center,
-        children: [
-          Positioned(
-            bottom: bottom, 
-            child: child,
-          ),
-        ], 
-      );
-    }
-  );
 }
