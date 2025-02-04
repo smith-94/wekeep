@@ -100,7 +100,7 @@ class LoginScreen extends StatefulWidget {
                                     borderDecoration: loginTryFlag
                                         ? null
                                         : TextFormFieldStyleHelper.outlineRedA,
-                                    fillColor: loginTryFlag ? null : appTheme.gray50,
+                                    //fillColor: loginTryFlag ? null : appTheme.gray50,
                                   ),
                                   SizedBox(height: 25.v),
                                   Text("비밀번호",
@@ -118,7 +118,7 @@ class LoginScreen extends StatefulWidget {
                                     borderDecoration: loginTryFlag
                                         ? null
                                         : TextFormFieldStyleHelper.outlineRedA,
-                                    fillColor: loginTryFlag ? null : appTheme.gray50,
+                                    fillColor: Colors.white,
                                     textInputAction: TextInputAction.done,
                                   ),
                                   SizedBox(height: 26.v),
