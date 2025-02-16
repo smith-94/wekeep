@@ -13,6 +13,7 @@ import 'package:wekeep/ui/common/widgets/custom_checkbox_button.dart';
 import 'package:wekeep/ui/common/widgets/custom_elevated_button.dart';
 import 'package:wekeep/ui/common/widgets/custom_image_view.dart';
 import 'package:wekeep/ui/common/widgets/custom_text_form_field.dart';
+import 'package:wekeep/ui/map/map_screen.dart';
 
 class LoginScreen extends StatefulWidget {
 
@@ -149,6 +150,8 @@ class LoginScreen extends StatefulWidget {
                                     buttonStyle: CustomButtonStyles.fillOnPrimaryContainer,
                                     text: "로그인",
                                     onTap: (() {
+                                      //TODO 레이아웃 이동
+                                      Navigator.pushNamed(context, '/main');
                                     }),
                                   ),
                                   SizedBox(height: 25.v),
